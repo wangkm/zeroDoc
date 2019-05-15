@@ -1,0 +1,8 @@
+081012
+优化了容错机制
+调整了document的meta信息结构
+可以为data_source提供options参数
+ZTableRangeProvider可以通过回调函数获取自身在表格中的位置
+
+081015
+修正了根据byte[]无法生成图片的bug

@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="document">
+		<xs:annotation>
+			<xs:documentation>文档根节点</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="metadata">
+					<xs:complexType>
+						<xs:attribute name="file_name" type="xs:string" use="required"/>
+						<xs:attribute name="save_path" type="xs:string" use="required"/>
+						<xs:attribute name="overwrite" type="xs:boolean" use="required"/>
+						<xs:attribute name="title" type="xs:string"/>
+						<xs:attribute name="creator" type="xs:string"/>
+						<xs:attribute name="create_time" type="xs:dateTime"/>
+						<xs:attribute name="last_modifier" type="xs:string"/>
+						<xs:attribute name="last_modtime" type="xs:dateTime"/>
+						<xs:attribute name="remark" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="section" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded">
+							<xs:element ref="static_text" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="dynamic_text" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="static_image" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="dynamic_image" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="table" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="hard_return" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="soft_return" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="new_page" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="content" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="tab" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="page_number" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="current_page_count" minOccurs="0"/>
+							<xs:element ref="page_count" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="dateTime_stamp" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="page_header" minOccurs="0"/>
+							<xs:element ref="page_footer" minOccurs="0"/>
+						</xs:choice>
+						<xs:attribute name="PageType" default="A4">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="A3"/>
+									<xs:enumeration value="A4"/>
+									<xs:enumeration value="A5"/>
+									<xs:enumeration value="A6"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="PageWidth" type="xs:float"/>
+						<xs:attribute name="FooterDistance" type="xs:float" default="1.75"/>
+						<xs:attribute name="HeaderDistance" type="xs:float" default="1.5"/>
+						<xs:attribute name="RightMargin" type="xs:float" default="3.17"/>
+						<xs:attribute name="LeftMargin" type="xs:float" default="3.17"/>
+						<xs:attribute name="BottomMargin" type="xs:float" default="2.54"/>
+						<xs:attribute name="TopMargin" type="xs:float" default="2.54"/>
+						<xs:attribute name="PageHeight" type="xs:float"/>
+						<xs:attribute name="section_type">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="wdSectionBreakNextPage"/>
+									<xs:enumeration value="wdSectionBreakContinuous"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="pageOrientation">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="wdOrientLandscape"/>
+									<xs:enumeration value="wdOrientPortrait"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="column_count" type="xs:integer" default="1"/>
+						<xs:attribute name="pagenum_restart" type="xs:boolean"/>
+						<xs:attribute name="pagenum_startingnum" type="xs:integer"/>
+						<xs:attribute name="pagenum_numstyle">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="wdPageNumberStyleArabic"/>
+									<xs:enumeration value="wdPageNumberStyleLowercaseRoman"/>
+									<xs:enumeration value="wdPageNumberStyleUppercaseRoman"/>
+									<xs:enumeration value="wdPageNumberStyleSimpChinNum1"/>
+									<xs:enumeration value="wdPageNumberStyleSimpChinNum2"/>
+									<xs:enumeration value="wdPageNumberStyleTradChinNum1"/>
+									<xs:enumeration value="wdPageNumberStyleTradChinNum2"/>
+									<xs:enumeration value="wdPageNumberStyleUppercaseLetter"/>
+									<xs:enumeration value="wdPageNumberStyleLowercaseLetter"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="static_text">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="2">
+				<xs:element ref="style" minOccurs="0"/>
+				<xs:element name="static_data"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="table">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="style" minOccurs="0"/>
+				<xs:element name="ranges">
+					<xs:complexType>
+						<xs:choice maxOccurs="unbounded">
+							<xs:element ref="static_range" minOccurs="0" maxOccurs="unbounded"/>
+							<xs:element ref="dynamic_range" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:choice>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+			<xs:attribute name="columns" type="xs:int" use="required"/>
+			<xs:attribute name="rows" type="xs:int" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dynamic_image">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="2">
+				<xs:element ref="style" minOccurs="0"/>
+				<xs:element ref="data_source"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="content">
+		<xs:complexType>
+			<xs:choice minOccurs="0">
+				<xs:element ref="style" minOccurs="0"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="new_page">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="hard_return">
+		<xs:complexType>
+			<xs:choice minOccurs="0">
+				<xs:element ref="style" minOccurs="0"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="soft_return">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="style">
+		<xs:complexType>
+			<xs:attribute name="alignment">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdAlignParagraphLeft"/>
+						<xs:enumeration value="wdAlignParagraphCenter"/>
+						<xs:enumeration value="wdAlignParagraphDistribute"/>
+						<xs:enumeration value="wdAlignParagraphJustify"/>
+						<xs:enumeration value="wdAlignParagraphJustifyHi"/>
+						<xs:enumeration value="wdAlignParagraphJustifyLow"/>
+						<xs:enumeration value="wdAlignParagraphJustifyMed"/>
+						<xs:enumeration value="wdAlignParagraphRight"/>
+						<xs:enumeration value="wdAlignParagraphThaiJustify"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="vAlignment">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdCellAlignVerticalTop"/>
+						<xs:enumeration value="wdCellAlignVerticalCenter"/>
+						<xs:enumeration value="wdCellAlignVerticalBottom"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="autofit">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdAutoFitWindow"/>
+						<xs:enumeration value="wdAutoFitContent"/>
+						<xs:enumeration value="wdAutoFitFixed"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="spaceBefore" type="xs:float"/>
+			<xs:attribute name="spaceAfter" type="xs:float"/>
+			<xs:attribute name="lineSpacingRule">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdLineSpaceSingle"/>
+						<xs:enumeration value="wdLineSpace1pt5"/>
+						<xs:enumeration value="wdLineSpaceDouble"/>
+						<xs:enumeration value="wdLineSpaceAtLeast"/>
+						<xs:enumeration value="wdLineSpaceExactly"/>
+						<xs:enumeration value="wdLineSpaceMultiple"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="lineSpacing" type="xs:float"/>
+			<xs:attribute name="height" type="xs:float"/>
+			<xs:attribute name="width" type="xs:float"/>
+			<xs:attribute name="font-name" type="xs:string"/>
+			<xs:attribute name="italic" type="xs:boolean"/>
+			<xs:attribute name="underline" type="xs:boolean"/>
+			<xs:attribute name="font-weight">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="bold"/>
+						<xs:enumeration value="normal"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="font-size" type="xs:float"/>
+			<xs:attribute name="font-color" type="xs:string"/>
+			<xs:attribute name="font-spacing" type="xs:float"/>
+			<xs:attribute name="buildin-style">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdStyleHeading1"/>
+						<xs:enumeration value="wdStyleHeading2"/>
+						<xs:enumeration value="wdStyleHeading3"/>
+						<xs:enumeration value="wdStyleHeading4"/>
+						<xs:enumeration value="wdStyleHeading5"/>
+						<xs:enumeration value="wdStyleHeading6"/>
+						<xs:enumeration value="wdStyleDefaultParagraphFont"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="border-top">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdLineStyleNone"/>
+						<xs:enumeration value="wdLineStyleSingle"/>
+						<xs:enumeration value="wdLineStyleDot"/>
+						<xs:enumeration value="wdLineStyleDashSmallGap"/>
+						<xs:enumeration value="wdLineStyleDashLargeGap"/>
+						<xs:enumeration value="wdLineStyleDashDot"/>
+						<xs:enumeration value="wdLineStyleDashDotDot"/>
+						<xs:enumeration value="wdLineStyleDouble"/>
+						<xs:enumeration value="wdLineStyleTriple"/>
+						<xs:enumeration value="wdLineStyleThinThickSmallGap"/>
+						<xs:enumeration value="wdLineStyleThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickMedGap"/>
+						<xs:enumeration value="wdLineStyleThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickLargeGap"/>
+						<xs:enumeration value="wdLineStyleThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleSingleWavy"/>
+						<xs:enumeration value="wdLineStyleDoubleWavy"/>
+						<xs:enumeration value="wdLineStyleDashDotStroked"/>
+						<xs:enumeration value="wdLineStyleEmboss3D"/>
+						<xs:enumeration value="wdLineStyleEngrave3D"/>
+						<xs:enumeration value="wdLineStyleOutset"/>
+						<xs:enumeration value="wdLineStyleInset"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="border-bottom">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdLineStyleNone"/>
+						<xs:enumeration value="wdLineStyleSingle"/>
+						<xs:enumeration value="wdLineStyleDot"/>
+						<xs:enumeration value="wdLineStyleDashSmallGap"/>
+						<xs:enumeration value="wdLineStyleDashLargeGap"/>
+						<xs:enumeration value="wdLineStyleDashDot"/>
+						<xs:enumeration value="wdLineStyleDashDotDot"/>
+						<xs:enumeration value="wdLineStyleDouble"/>
+						<xs:enumeration value="wdLineStyleTriple"/>
+						<xs:enumeration value="wdLineStyleThinThickSmallGap"/>
+						<xs:enumeration value="wdLineStyleThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickMedGap"/>
+						<xs:enumeration value="wdLineStyleThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickLargeGap"/>
+						<xs:enumeration value="wdLineStyleThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleSingleWavy"/>
+						<xs:enumeration value="wdLineStyleDoubleWavy"/>
+						<xs:enumeration value="wdLineStyleDashDotStroked"/>
+						<xs:enumeration value="wdLineStyleEmboss3D"/>
+						<xs:enumeration value="wdLineStyleEngrave3D"/>
+						<xs:enumeration value="wdLineStyleOutset"/>
+						<xs:enumeration value="wdLineStyleInset"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="border-left">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdLineStyleNone"/>
+						<xs:enumeration value="wdLineStyleSingle"/>
+						<xs:enumeration value="wdLineStyleDot"/>
+						<xs:enumeration value="wdLineStyleDashSmallGap"/>
+						<xs:enumeration value="wdLineStyleDashLargeGap"/>
+						<xs:enumeration value="wdLineStyleDashDot"/>
+						<xs:enumeration value="wdLineStyleDashDotDot"/>
+						<xs:enumeration value="wdLineStyleDouble"/>
+						<xs:enumeration value="wdLineStyleTriple"/>
+						<xs:enumeration value="wdLineStyleThinThickSmallGap"/>
+						<xs:enumeration value="wdLineStyleThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickMedGap"/>
+						<xs:enumeration value="wdLineStyleThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickLargeGap"/>
+						<xs:enumeration value="wdLineStyleThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleSingleWavy"/>
+						<xs:enumeration value="wdLineStyleDoubleWavy"/>
+						<xs:enumeration value="wdLineStyleDashDotStroked"/>
+						<xs:enumeration value="wdLineStyleEmboss3D"/>
+						<xs:enumeration value="wdLineStyleEngrave3D"/>
+						<xs:enumeration value="wdLineStyleOutset"/>
+						<xs:enumeration value="wdLineStyleInset"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="border-right">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdLineStyleNone"/>
+						<xs:enumeration value="wdLineStyleSingle"/>
+						<xs:enumeration value="wdLineStyleDot"/>
+						<xs:enumeration value="wdLineStyleDashSmallGap"/>
+						<xs:enumeration value="wdLineStyleDashLargeGap"/>
+						<xs:enumeration value="wdLineStyleDashDot"/>
+						<xs:enumeration value="wdLineStyleDashDotDot"/>
+						<xs:enumeration value="wdLineStyleDouble"/>
+						<xs:enumeration value="wdLineStyleTriple"/>
+						<xs:enumeration value="wdLineStyleThinThickSmallGap"/>
+						<xs:enumeration value="wdLineStyleThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickMedGap"/>
+						<xs:enumeration value="wdLineStyleThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickLargeGap"/>
+						<xs:enumeration value="wdLineStyleThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleSingleWavy"/>
+						<xs:enumeration value="wdLineStyleDoubleWavy"/>
+						<xs:enumeration value="wdLineStyleDashDotStroked"/>
+						<xs:enumeration value="wdLineStyleEmboss3D"/>
+						<xs:enumeration value="wdLineStyleEngrave3D"/>
+						<xs:enumeration value="wdLineStyleOutset"/>
+						<xs:enumeration value="wdLineStyleInset"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="border-horizontal">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdLineStyleNone"/>
+						<xs:enumeration value="wdLineStyleSingle"/>
+						<xs:enumeration value="wdLineStyleDot"/>
+						<xs:enumeration value="wdLineStyleDashSmallGap"/>
+						<xs:enumeration value="wdLineStyleDashLargeGap"/>
+						<xs:enumeration value="wdLineStyleDashDot"/>
+						<xs:enumeration value="wdLineStyleDashDotDot"/>
+						<xs:enumeration value="wdLineStyleDouble"/>
+						<xs:enumeration value="wdLineStyleTriple"/>
+						<xs:enumeration value="wdLineStyleThinThickSmallGap"/>
+						<xs:enumeration value="wdLineStyleThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickMedGap"/>
+						<xs:enumeration value="wdLineStyleThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickLargeGap"/>
+						<xs:enumeration value="wdLineStyleThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleSingleWavy"/>
+						<xs:enumeration value="wdLineStyleDoubleWavy"/>
+						<xs:enumeration value="wdLineStyleDashDotStroked"/>
+						<xs:enumeration value="wdLineStyleEmboss3D"/>
+						<xs:enumeration value="wdLineStyleEngrave3D"/>
+						<xs:enumeration value="wdLineStyleOutset"/>
+						<xs:enumeration value="wdLineStyleInset"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="border-vertical">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="wdLineStyleNone"/>
+						<xs:enumeration value="wdLineStyleSingle"/>
+						<xs:enumeration value="wdLineStyleDot"/>
+						<xs:enumeration value="wdLineStyleDashSmallGap"/>
+						<xs:enumeration value="wdLineStyleDashLargeGap"/>
+						<xs:enumeration value="wdLineStyleDashDot"/>
+						<xs:enumeration value="wdLineStyleDashDotDot"/>
+						<xs:enumeration value="wdLineStyleDouble"/>
+						<xs:enumeration value="wdLineStyleTriple"/>
+						<xs:enumeration value="wdLineStyleThinThickSmallGap"/>
+						<xs:enumeration value="wdLineStyleThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinSmallGap"/>
+						<xs:enumeration value="wdLineStyleThinThickMedGap"/>
+						<xs:enumeration value="wdLineStyleThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinMedGap"/>
+						<xs:enumeration value="wdLineStyleThinThickLargeGap"/>
+						<xs:enumeration value="wdLineStyleThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleThinThickThinLargeGap"/>
+						<xs:enumeration value="wdLineStyleSingleWavy"/>
+						<xs:enumeration value="wdLineStyleDoubleWavy"/>
+						<xs:enumeration value="wdLineStyleDashDotStroked"/>
+						<xs:enumeration value="wdLineStyleEmboss3D"/>
+						<xs:enumeration value="wdLineStyleEngrave3D"/>
+						<xs:enumeration value="wdLineStyleOutset"/>
+						<xs:enumeration value="wdLineStyleInset"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="data_source">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="provider">
+					<xs:complexType>
+						<xs:attribute name="file_url" type="xs:string" use="optional"/>
+						<xs:attribute name="class_name" type="xs:string" use="required"/>
+						<xs:attribute name="options" type="xs:string"/>
+						<!-- 如果jar文件放在classpath下，则可以不写file_url -->
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="parameters">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="paramater" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="name" type="xs:string" use="required"/>
+									<xs:attribute name="value" type="xs:string" use="required"/>
+									<xs:attribute name="remark" type="xs:string" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tab"/>
+	<xs:element name="cell">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="static_text" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="static_image" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="hard_return" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="soft_return" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="tab" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="page_count" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="page_number" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="dateTime_stamp" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="current_page_count" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="style" minOccurs="0"/>
+			</xs:choice>
+			<xs:attribute name="column" type="xs:int" use="required"/>
+			<xs:attribute name="row" type="xs:int" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="page_count"/>
+	<xs:element name="page_number">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="dateTime_stamp">
+		<xs:complexType>
+			<xs:attribute name="dateTimeFormat" type="xs:string" default="yyyy'年'M'月'd'日 - 'HH:mm:ss"/>
+			<xs:attribute name="insertAsField" type="xs:boolean" default="true"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dynamic_text">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="2">
+				<xs:element ref="style" minOccurs="0"/>
+				<xs:element ref="data_source"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="static_image">
+		<xs:complexType>
+			<xs:choice minOccurs="0">
+				<xs:element ref="style" minOccurs="0"/>
+			</xs:choice>
+			<xs:attribute name="file_url" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dynamic_range">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="style" minOccurs="0"/>
+				<xs:element ref="data_source"/>
+			</xs:sequence>
+			<xs:attribute name="start_row" type="xs:integer" use="required"/>
+			<xs:attribute name="start_column" type="xs:integer" use="required"/>
+			<xs:attribute name="end_row" type="xs:integer" use="required"/>
+			<xs:attribute name="end_column" type="xs:integer" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="static_range">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="style" minOccurs="0"/>
+				<xs:element name="cells" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="cell" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="merge_infos" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="start_column" type="xs:integer" use="required"/>
+			<xs:attribute name="end_column" type="xs:integer" use="required"/>
+			<xs:attribute name="end_row" type="xs:integer" use="required"/>
+			<xs:attribute name="start_row" type="xs:integer" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="merge_infos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="merge_info" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="start_row" type="xs:int" use="required"/>
+						<xs:attribute name="start_column" type="xs:int" use="required"/>
+						<xs:attribute name="end_row" type="xs:int" use="required"/>
+						<xs:attribute name="end_column" type="xs:int" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="page_header">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="static_text" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="dynamic_text" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="static_image" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="dynamic_image" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="table" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="hard_return" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="soft_return" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="tab" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="page_count" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="page_number" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="dateTime_stamp" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="current_page_count" minOccurs="0"/>
+			</xs:choice>
+			<xs:attribute name="with_line" type="xs:boolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="page_footer">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="static_text" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="dynamic_text" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="static_image" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="dynamic_image" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="table" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="hard_return" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="soft_return" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="tab" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="page_count" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="page_number" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="dateTime_stamp" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="current_page_count" minOccurs="0"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="current_page_count">
+		<xs:complexType>
+			<xs:attribute name="offset" type="xs:integer" default="0"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

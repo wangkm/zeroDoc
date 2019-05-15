@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zerodoc.xsd">
+	<metadata file_name="demo.doc" save_path="c:\" overwrite="true" title="New Word Document"/>
+	<section>
+		<page_header with_line="false">
+			<table rows="1" columns="2">
+				<style border-bottom="wdLineStyleNone" border-top="wdLineStyleNone" border-left="wdLineStyleNone" border-right="wdLineStyleNone" border-horizontal="wdLineStyleNone" border-vertical="wdLineStyleNone"/>
+				<ranges>
+					<static_range end_row="1" start_column="1" start_row="1" end_column="2">
+						<cells>
+							<cell row="1" column="1">
+								<static_image file_url="D:\Tmp\Eclipse\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\zerodocUI\data\images\200811\保险logo.png"/>
+								<style width="50"/>
+							</cell>
+							<cell row="1" column="2">
+								<style width="300" alignment="wdAlignParagraphCenter" vAlignment="wdCellAlignVerticalCenter"/>
+								<static_text>
+									<static_data><![CDATA[中国人寿保险股份有限公司广东省分公司]]></static_data>
+									<style font-name="隶书" font-weight="bold" font-size="12"/>
+								</static_text>
+								<soft_return/>
+								<static_text>
+									<style font-name="Arial" font-size="9"/>
+									<static_data><![CDATA[China Life Insurance Co. Ltd. Guangdong Branch]]></static_data>
+								</static_text>
+							</cell>
+						</cells>
+					</static_range>
+				</ranges>
+			</table>
+		</page_header>
+		
+		
+		
+		
+		
+		
+		
+		
+	<static_text>
+			<style font-color="255,0,0" alignment="wdAlignParagraphCenter" font-name="隶书" font-size="15"/>
+			<static_data><![CDATA[医疗保险索赔申请单
+]]></static_data>
+		</static_text><static_text>
+			<static_data><![CDATA[上联保险人留存
+]]></static_data>
+			<style alignment="wdAlignParagraphCenter" font-name="黑体" font-size="10.5"/>
+		</static_text><static_text>
+			<static_data><![CDATA[索赔申请指引须知：
+]]></static_data>
+		<style font-weight="bold" italic="true"/></static_text><static_text>
+			<static_data><![CDATA[1. 清楚、完整、正确填写员工或家属编号；员工与子女同时索赔时请分开索赔申请单填写。
+2. 每次就诊费用请分栏填写；请填写索赔收据数量、收据金额，及其合计数。
+3. 每次就诊的病历资料与对应的医疗收据放在一起，并钉附在索赔申请单后，勿粘贴。
+4. 费用类别填写：1—门诊；2—住院；3—生育；4—体检；5—其他。
+5. 索赔时请提供医疗收据原件、门诊病历、各项检查报告、住院小结等原件或复印件；
+6. 复审请附初审退单全部资料及补充资料，并附上个人赔款清单；
+
+]]></static_data>
+		</static_text><table rows="2" columns="6">
+			<style vAlignment="wdCellAlignVerticalCenter" alignment="wdAlignParagraphCenter" font-size="9"/>
+			<ranges>
+				<static_range start_row="1" start_column="1" end_row="2" end_column="6">
+					<cells>
+						<cell row="1" column="1">
+							<static_text>
+								<static_data><![CDATA[员工编号]]></static_data>
+								<style alignment="wdAlignParagraphCenter"/>
+							</static_text>
+						</cell>
+						<cell row="1" column="3">
+							<static_text>
+								<static_data><![CDATA[员工姓名
+(中文全名)]]></static_data>
+								<style font-color="0,0,0"/>
+							</static_text>
+						</cell>
+						<cell row="1" column="5">
+							<static_text>
+								<static_data><![CDATA[工作城市]]></static_data>
+							</static_text>
+						</cell>
+						<cell row="2" column="1">
+							<static_text>
+								<static_data><![CDATA[子女姓名
+(中文全名)]]></static_data>
+							</static_text>
+							<style font-color="255,0,0"/>
+						</cell>
+						<cell row="2" column="3">
+							<static_text>
+								<static_data><![CDATA[年龄/性别]]></static_data>
+							</static_text>
+							<style vAlignment="wdCellAlignVerticalCenter"/>
+						</cell>
+						<cell row="2" column="5">
+							<static_text>
+								<static_data><style font-color="100,100,100"/><![CDATA[您的
+联系电话]]></static_data>
+							</static_text>
+						</cell>
+					</cells>
+				</static_range>
+			</ranges>
+		</table><static_text>
+			<static_data><![CDATA[
+公司名称（请在您相应的公司名前选择）
+]]></static_data>
+			<style font-size="9" font-weight="bold"/>
+		</static_text><static_text>
+			<static_data><![CDATA[（ ）西门子（中国）有限公司   （ ）技术培训有限公司        （ ）技术开发有限公司
+（ ）财务服务有限公司         （ ）西门子（上海）有限公司  （ ）西门子（南京）有限公司
+
+]]></static_data>
+			<style font-size="9"/>
+		</static_text><table columns="8" rows="10">
+			<ranges>
+				<static_range start_column="1" end_column="8" end_row="10" start_row="1">
+					<cells>
+						<cell row="1" column="1">
+							<static_text>
+								<static_data><![CDATA[员工填写]]></static_data>
+							</static_text>
+						</cell>
+						<cell row="1" column="7">
+							<static_text>
+								<static_data><![CDATA[保险公司填写]]></static_data>
+							</static_text>
+						</cell>
+						<cell row="2" column="1">
+							<static_text>
+								<static_data><![CDATA[诊治
+日期]]></static_data>
+							</static_text>
+						<style width="40"/></cell>
+						<cell row="2" column="2">
+							<static_text>
+								<static_data><![CDATA[费用
+类别]]></static_data>
+							</static_text>
+						<style width="40"/></cell>
+						<cell row="2" column="3">
+							<static_text>
+								<static_data><![CDATA[收据
+数量]]></static_data>
+							</static_text>
+						<style width="40"/></cell>
+						<cell row="2" column="4">
+							<static_text>
+								<static_data><![CDATA[收据
+金额]]></static_data>
+							</static_text>
+						<style width="40"/></cell>
+						<cell row="2" column="5">
+							<static_text>
+								<static_data><![CDATA[本保险年度
+住院次数]]></static_data>
+							</static_text>
+						<style width="60"/></cell>
+						<cell row="2" column="6">
+							<static_text>
+								<static_data><![CDATA[索赔的事故原因或疾病名称
+（诊断或病因）]]></static_data>
+							</static_text>
+						<style width="120"/></cell>
+						<cell row="2" column="7">
+							<static_text>
+								<static_data><![CDATA[核赔意见]]></static_data>
+							</static_text>
+						</cell>
+						<cell row="2" column="8">
+							<static_text>
+								<static_data><![CDATA[退单数]]></static_data>
+							</static_text>
+						</cell>
+						<cell row="9" column="1">
+							<static_text>
+								<static_data><![CDATA[合计]]></static_data>
+							</static_text>
+						</cell>
+						<cell row="10" column="1">
+							<static_text>
+								<static_data><![CDATA[特别说明：
+
+
+]]></static_data>
+							<style alignment="wdAlignParagraphLeft"/></static_text>
+						</cell>
+					</cells>
+					<merge_infos>
+						<merge_info start_row="1" start_column="1" end_row="1" end_column="6"/>
+						<merge_info start_row="1" start_column="7" end_row="1" end_column="8"/>
+						<merge_info start_row="10" start_column="1" end_row="10" end_column="8"/>
+					</merge_infos>
+				</static_range>
+			</ranges>
+		<style alignment="wdAlignParagraphCenter" vAlignment="wdCellAlignVerticalCenter" font-size="9"/></table><static_text><static_data><![CDATA[
+被保险人及连带被保险人声明及授权：
+]]></static_data><style italic="true" font-weight="bold"/></static_text><static_text><static_data><![CDATA[1. 上述各项填报及本人提供的一切资料完全属实。如有虚假不实或隐瞒情况，贵公司有权拒赔保险赔偿金并依法追究法律责任。
+2. 本人授权任何医院及其他知情机构或人士向贵公司提供有关本人此次意外或疾病的一切资料及健康状况,病例和诊疗资料。
+]]></static_data><style font-size="9"/></static_text><static_text><static_data><![CDATA[被保险人签名（中文）：___________
+填写日期：________年____月____日
+
+]]></static_data><style alignment="wdAlignParagraphRight"/></static_text><new_page/><static_text><static_data><![CDATA[下联投保人留存
+]]></static_data><style alignment="wdAlignParagraphCenter" font-name="黑体" font-size="10.5"/></static_text><table columns="6" rows="4"><ranges><static_range start_column="1" end_column="6" end_row="4" start_row="1"><cells><cell row="1" column="1"><static_text><static_data><![CDATA[员工填写]]></static_data></static_text></cell><cell row="1" column="5"><static_text><static_data><![CDATA[交接人填写]]></static_data></static_text></cell><cell row="2" column="1"><static_text><static_data><![CDATA[员工编号]]></static_data></static_text></cell><cell row="2" column="3"><static_text><static_data><![CDATA[员工姓名]]></static_data></static_text></cell><cell row="3" column="3"><static_text><static_data><![CDATA[家属姓名]]></static_data></static_text></cell><cell row="2" column="5"><static_text><static_data><![CDATA[退索赔收据数量]]></static_data></static_text><style width="100" alignment="wdAlignParagraphCenter"/></cell><cell row="3" column="5"><static_text><static_data><![CDATA[退索赔收据总金额]]></static_data></static_text></cell><cell row="4" column="1"><static_text><static_data><![CDATA[索赔收据
+数量]]></static_data></static_text></cell><cell row="4" column="3"><static_text><static_data><![CDATA[索赔收据
+总金额]]></static_data></static_text></cell><cell row="4" column="5"><static_text><static_data><![CDATA[签收日期]]></static_data></static_text></cell></cells><merge_infos><merge_info start_row="2" start_column="1" end_row="3" end_column="1"/><merge_info start_row="2" start_column="2" end_row="3" end_column="2"/><merge_info start_row="1" start_column="1" end_row="1" end_column="4"/><merge_info start_row="1" start_column="5" end_row="1" end_column="6"/></merge_infos></static_range></ranges><style alignment="wdAlignParagraphCenter" vAlignment="wdCellAlignVerticalCenter" font-size="9"/></table></section>
+</document>

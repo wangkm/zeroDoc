@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="zerodoc.xsd">
+	<metadata file_name="demo.doc" save_path="d:\tmp" overwrite="true" creator="starry" title="XXX试验报告" remark="供测试ZeroDocGen的功能"/>
+	<page_setup PageHeight="20" PageWidth="20" LeftMargin="3.17" RightMargin="3.17" TopMargin="2.54" BottomMargin="2.54" HeaderDistance="1.5" FooterDistance="1.75"/>
+	<!-- 第一节，封面 -->
+	<section>
+		<table rows="4" columns="2">
+			<ranges>
+				<static_range end_row="1" start_column="1" start_row="4" end_column="2">
+					<style border-top="wdLineStyleDouble" border-bottom="wdLineStyleDouble" border-left="wdLineStyleDouble" border-right="wdLineStyleDouble" border-horizontal="wdLineStyleSingle" border-vertical="wdLineStyleSingle"/>
+					<cells>
+						<cell row="1" column="1">
+							<style width="300" lineSpacingRule="wdLineSpace1pt5" font-color="0,0,255" font-weight="bold" underline="true" italic="true"/>
+							<static_text>
+							<static_data>静态表格测试</static_data>
+							</static_text>
+						</cell>
+						<cell row="1" column="2">
+							<style width="120" alignment="wdAlignParagraphCenter" vAlignment="wdCellAlignVerticalCenter"/>
+						</cell>
+						<cell row="2" column="1">
+							<static_text><static_data><![CDATA[GF 编 号：XXXX]]></static_data></static_text>
+						</cell>
+						<cell row="2" column="2">
+							<static_text><static_data><![CDATA[部门编号：]]></static_data></static_text>
+						</cell>
+						<cell row="3" column="1">
+							<static_text><static_data><![CDATA[分类号：]]></static_data></static_text>
+						</cell>
+						<cell row="3" column="2">
+							<static_text><static_data><![CDATA[秘密★长期]]></static_data></static_text>
+						</cell>
+						<cell row="4" column="1">
+							<static_text><static_data><![CDATA[基层编号：]]></static_data></static_text>
+						</cell>
+						<cell row="4" column="2">
+							<static_text><static_data><![CDATA[2005-01]]></static_data></static_text>
+						</cell>
+					</cells>
+					<merge_infos>
+						<merge_info start_column="1" start_row="1" end_column="2" end_row="1"/>
+					</merge_infos>
+				</static_range>
+			</ranges>
+		</table>
+		<hard_return>
+			<style/>
+		</hard_return>
+		<static_text>
+			<style lineSpacingRule="wdLineSpaceDouble" alignment="wdAlignParagraphCenter" font-size="24" font-weight="bold" lineUnitBefore="2.5"/>
+			<static_data><![CDATA[中国国防科学技术报告]]></static_data>
+		</static_text>
+		<static_text>
+			<style font-size="10" font-color="0,0,255"/>
+			<static_data>测试文本</static_data>
+		</static_text>
+		<soft_return/>
+	</section>
+	<!-- 第二节，显示文件目录 -->
+	<section section_type="wdSectionBreakNextPage" pageOrientation="wdOrientLandscape">
+		<page_header>
+			<static_text>
+				<style alignment="wdAlignParagraphCenter" font-size="10"/>
+				<static_data><![CDATA[这里是目录，同时测试页面方向]]></static_data>
+			</static_text>
+		</page_header>
+		<static_text>
+			<style alignment="wdAlignParagraphCenter" font-weight="bold"/>
+			<static_data><![CDATA[目    录]]></static_data>
+		</static_text>
+		<hard_return/>
+		<content/>
+	</section>
+	<!-- 第三节，显示文件内容 -->
+	<section section_type="wdSectionBreakNextPage" pageOrientation="wdOrientPortrait" foot_pagenum_restart="false" foot_pagenum_startingnum="8" column_count="2">
+		<page_header>
+			<static_text>
+				<style alignment="wdAlignParagraphCenter" font-size="10"/>
+				<static_data><![CDATA[测试分节页眉]]></static_data>
+			</static_text>
+		</page_header>
+		<page_footer>
+			<static_text>
+				<style alignment="wdAlignParagraphCenter"/>
+				<static_data>第</static_data>
+			</static_text>
+			<page_number/>
+			<static_text>
+				<style alignment="wdAlignParagraphCenter"/>
+				<static_data>页</static_data>
+			</static_text>
+			<static_text>
+				<style alignment="wdAlignParagraphCenter"/>
+				<static_data>（共</static_data>
+			</static_text>
+			<page_count/>
+			<static_text>
+				<style alignment="wdAlignParagraphCenter"/>
+				<static_data>页）-</static_data>
+			</static_text>
+			<dateTime_stamp dateTimeFormat="yyyy&apos;年&apos;M&apos;月&apos;d&apos;日 - &apos;HH:mm:ss" insertAsField="true"/>
+			<static_text>
+				<style alignment="wdAlignParagraphCenter"/>
+				<static_data> </static_data>
+			</static_text>
+		</page_footer>
+		<static_text>
+			<style buildin-style="wdStyleHeading1"/>
+			<static_data><![CDATA[1. 试验依据]]></static_data>
+		</static_text>
+		<hard_return/>
+		<tab repeat="1"/>
+		<tab/>
+		<static_text>
+			<style/>
+			<static_data><![CDATA[本试验主要依据《××阶段自导系统半实物仿真试验大纲》和《××阶段自导系统半实物仿真试验实施细则》。]]></static_data>
+		</static_text>
+		<hard_return/>
+		<tab repeat="1"/>
+		<dynamic_text>
+			<style/>
+			<data_source>
+				<provider file_url="D:\Tmp\MyProviders.jar" class_name="demo.MyTextProvider"/>
+				<parameters>
+					<paramater name="para1" value="测试文本" remark="none"/>
+				</parameters>
+			</data_source>
+		</dynamic_text>
+		<hard_return/>
+		<static_text>
+			<style buildin-style="wdStyleHeading1"/>
+			<static_data><![CDATA[5. 试验内容]]></static_data>
+		</static_text>
+		<hard_return/>
+		<static_text>
+			<style buildin-style="wdStyleHeading2"/>
+			<static_data><![CDATA[5.1 单元、接口、子系统联调测试]]></static_data>
+		</static_text>
+		<hard_return/>
+		<tab repeat="1"/>
+		<static_text>
+			<style lineSpacing="20"/>
+			<static_data><![CDATA[根据《XXX仿真系统集成标准》，针对各参试的仿真设备进行单元测试，对产品接口机与其它仿真设备之间的接口进行接口标定和测试，以保证满足仿真设备的电气接口要求，并且各仿真设备按照仿真连接关系组成不同子系统，进行相应的连通性以及子系统联调测试，确定仿真设备工作状态正常，可以进行自导系统仿真联调试验。]]></static_data>
+		</static_text>
+		<hard_return/>
+		<static_image file_url="E:\1137\My Documents\My Pictures\software.JPG">
+			<style height="300" width="400" alignment="wdAlignParagraphCenter"/>
+		</static_image>
+		<dynamic_image>
+			<style height="300" width="400" alignment="wdAlignParagraphCenter"/>
+			<data_source>
+				<provider file_url="D:\Tmp\MyProviders.jar" class_name="demo.MyImageProvider"/>
+				<parameters>
+					<paramater remark="" value="" name=""/>
+				</parameters>
+			</data_source>
+		</dynamic_image>
+		<hard_return />
+		<table rows="8" columns="3">
+			<style alignment="wdAlignParagraphCenter" autofit="wdAutoFitWindow"/>
+			<ranges>
+				<dynamic_range start_row="1" start_column="1" end_row="7" end_column="3">
+					<data_source>
+						<provider file_url="D:\Tmp\MyProviders.jar" class_name="demo.MyTableProvider"/>
+						<parameters>
+							<paramater remark="" value="" name=""/>
+						</parameters>
+					</data_source>
+				</dynamic_range>
+			</ranges>
+		</table>
+	</section>
+	<!-- 第四节 -->
+	<section column_count="1">
+		<static_text>
+			<style buildin-style="wdStyleHeading2"/>
+			<static_data><![CDATA[6 小节]]></static_data>
+		</static_text>
+	</section>
+</document>
